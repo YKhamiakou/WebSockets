@@ -1,0 +1,25 @@
+#container {
+    border: 1px #999999 solid;
+    padding: 10px;
+}
+p.client {
+    border-bottom: 1px #4d52ff solid;
+}
+p.server {
+    border-bottom: 1px #59dc2b solid;
+}
+input {
+    padding: 5px;
+    width: 250px;
+}
+button {
+    padding: 5px;
+}
+.footer-bottom{
+    text-align:right;
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.7) ;
+    padding:15px 0;
+    font-size:11px;
+    color:black;
+}

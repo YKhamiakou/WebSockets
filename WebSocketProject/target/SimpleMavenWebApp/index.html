@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <title>WebSocket</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script>
+      var chatClient = new WebSocket("ws://localhost:8080/chat");
+
+      chatClient.onmessage = function(evt) {
+          var p = document.createElement("p");
+          p.setAttribute("class", "server");
+          p.innerHTML = "Server: " + evt.data;
+          var container = document.getElementById("container");
+          container.appendChild(p);
+      }
+      function send() {
+          var input = document.getElementById("message");
+          var p = document.createElement("p");
+          p.setAttribute("class", "client");
+          p.innerHTML = "Client: " + input.value;
+          var container = document.getElementById("container");
+          container.appendChild(p);
+          chatClient.send(input.value);
+          input.value = "";
+      }
+  </script>
+</head>
+<body>
+    <h1>Chat</h1>
+    <div id="container">
+    </div>
+    <input type="text" id="message" name="message" />
+    <button type="button" id="send" onclick="send()">Send</button>
+
+    <!-- футер -->
+    <div class="footer-bottom">
+        © 2018 | Карпенко, Хомяков
+    </div>
+</body>
+</html>
